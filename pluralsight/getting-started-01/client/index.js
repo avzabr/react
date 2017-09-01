@@ -3,22 +3,47 @@ import ReactDom from 'react-dom';
 
 class Button extends React.Component {
 
-    state = {counter: 0};
+    handleClick = () => {
+        this.props.onClickFunction(this.props.incrementValue)
+    };
 
     render() {
         return (
-            <button onClick={this.handleClick}>{this.state.counter}</button>
+            <button onClick={this.handleClick}>+{this.props.incrementValue}</button>
         )
-    }
-
-    handleClick = (e) => {
-        e.preventDefault();
-        this.setState((prevState) => ({
-            counter: prevState.counter + 1
-        }))
-
     }
 
 }
 
-ReactDom.render(<Button label="Test"/>, document.getElementById('root'));
+const Result = (props) => {
+    return (
+        <div>{props.counter}</div>
+    )
+};
+
+class App extends React.Component {
+
+    state = {counter: 0};
+
+    incrementCounter = (incrementValue) => {
+        this.setState((prevState) => ({
+            counter: prevState.counter + incrementValue
+        }))
+    };
+
+    render() {
+        return (
+            <div>
+                <Button onClickFunction={this.incrementCounter} incrementValue={1}/>
+                <Button onClickFunction={this.incrementCounter} incrementValue={5}/>
+                <Button onClickFunction={this.incrementCounter} incrementValue={10}/>
+                <Button onClickFunction={this.incrementCounter} incrementValue={50}/>
+                <Result counter={this.state.counter}/>
+            </div>
+        )
+    }
+
+
+}
+
+ReactDom.render(<App/>, document.getElementById('root'));
