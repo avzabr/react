@@ -1,0 +1,8 @@
+{
+  "name": "getting-started-01",
+  "version": "1.0.0",
+  "description": "Pluralsight getting started react 01",
+  "main": "index.js",
+  "author": "Aliaksandr Zabrodski",
+  "license": "MIT"
+}
