@@ -6,7 +6,7 @@ import axios from 'axios';
 const Card = (props) => {
     return (
         <div style={{margin: '1em'}}>
-            <img width={75} src={props.avatarUrl}/>
+            <img width={75} src={props.avatar_url}/>
             <div style={{display: 'inline-block', marginLeft: 10, verticalAlign: 'top'}}>
                 <div style={{fontSize: '1.25em', fontWeight: 'bold'}}>{props.name}</div>
                 <div>{props.company}</div>
@@ -18,7 +18,7 @@ const Card = (props) => {
 const CardList = (props) => {
     return (
         <div>
-            {props.cards.map(card => <Card key={card.name} {...card}/>)}
+            {props.cards.map(card => <Card key={card.id} {...card}/>)}
         </div>
     )
 };
@@ -27,10 +27,10 @@ class Form extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         // console.log(this.usernameInput.value)
-        console.log(this.state.username);
         axios.get(`https://api.github.com/users/${this.state.username}`).then((resp) => {
-            console.log(resp)
-        })
+            this.props.onSubmit(resp.data)
+        });
+        this.setState({username: ''})
 
     };
 
@@ -51,19 +51,19 @@ class Form extends React.Component {
 class App extends React.Component {
 
     state = {
-        cards: [
-            {
-                name: "Aliaksandr Zabrodski",
-                avatarUrl: "https://avatars1.githubusercontent.com/u/17640566?v=4",
-                company: "IAC Apps"
-            }
-        ]
+        cards: []
+    };
+
+    onUsernameSubmit = (card) => {
+        this.setState((prevState) => ({
+            cards: prevState.cards.concat(card)
+        }))
     };
 
     render() {
         return (
             <div>
-                <Form/>
+                <Form onSubmit={this.onUsernameSubmit}/>
                 <CardList cards={this.state.cards}/>
             </div>
         )
