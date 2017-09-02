@@ -1,14 +1,15 @@
 const path = require('path');
+const lerningModule = 'client-working-with-data';
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: './client-intro/index.html',
+    template: './' + lerningModule + '/index.html',
     filename: 'index.html',
     inject: 'body'
 });
 
 module.exports = {
-    entry: './client/index.js',
+    entry: './' + lerningModule + '/index.js',
     output: {
         path: path.resolve('dist'),
         filename: 'index_bundle.js'
