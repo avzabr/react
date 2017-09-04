@@ -1,0 +1,33 @@
+i.star {
+    font-size: 24px;
+    margin: 0.5em;
+}
+
+.btn-wrp {
+    margin-top: 40px;
+}
+
+.game-top {
+    height: 100px;
+}
+
+.number {
+    display: inline-block;
+    margin: 0.5em;
+    text-align: center;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #EEE;
+    color: #ddd;
+    cursor: not-allowed;
+}
+
+.used {
+    background-color: #aaddaa;
+    color: #99bb99;
+    cursor: not-allowed;
+}

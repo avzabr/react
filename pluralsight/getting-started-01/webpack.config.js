@@ -24,6 +24,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: 'index_bundle.js'
     },
+    devtool: 'cheap-module-eval-source-map',
     module: {
         loaders: [
             {
