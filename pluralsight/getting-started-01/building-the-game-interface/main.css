@@ -5,6 +5,12 @@ i.star {
 
 .btn-wrp {
     margin-top: 40px;
+    text-align: center;
+}
+
+.btn-reset {
+    margin-top: 5px;
+    font-size: 10px;
 }
 
 .game-top {
