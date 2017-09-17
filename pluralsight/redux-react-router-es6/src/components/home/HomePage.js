@@ -9,6 +9,8 @@ class HomePage extends React.Component {
         <p>React, Redux and React router for ultra responsive react apps</p>
         <Link to="about" className="btn btn-primary btn-lg"> Learn More</Link>
       </div>
-    )
+    );
   }
 }
+
+export default HomePage;
