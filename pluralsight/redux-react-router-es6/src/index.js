@@ -5,7 +5,12 @@ import routes from './routes';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+import store from './store';
+import {Provider} from 'react-redux';
+
 render(
-  <Router history={browserHistory} routes={routes}/>,
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes}/>
+  </Provider>,
   document.getElementById('app')
 );
