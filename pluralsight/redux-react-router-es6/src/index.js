@@ -5,7 +5,7 @@ import routes from './routes';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import store from './store';
+import store from './store/configureStore';
 import {Provider} from 'react-redux';
 
 render(
