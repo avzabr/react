@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {createCourse} from "../../actions/courseActions";
+import CourseList from './CourseList';
 
 class CoursesPage extends React.Component {
 
@@ -13,10 +14,6 @@ class CoursesPage extends React.Component {
 
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
-  }
-
-  courseRow(course, index) {
-    return (<div key={index}>{course.title}</div>);
   }
 
   onTitleChange(event) {
@@ -40,7 +37,7 @@ class CoursesPage extends React.Component {
     return (
       <div>
         <h1>Courses</h1>
-        {this.props.courses.map(this.courseRow)}
+        <CourseList courses={this.props.courses}/>
         <h2>Add Course</h2>
         <input type="text"
                onChange={this.onTitleChange}
