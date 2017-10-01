@@ -38,12 +38,6 @@ class CoursesPage extends React.Component {
       <div>
         <h1>Courses</h1>
         <CourseList courses={this.props.courses}/>
-        <h2>Add Course</h2>
-        <input type="text"
-               onChange={this.onTitleChange}
-               value={this.state.course.title}/>
-        <input type="submit"
-               onClick={this.onClickSave}/>
       </div>
     );
   }
