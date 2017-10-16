@@ -1,6 +1,7 @@
 import {CREATE_COURCE, LOAD_COURSES_SUCCESS} from '../actions/actionsTypes';
+import initialState from './initialState';
 
-const courseReducer = (state = [], action) => {
+const courseReducer = (state = initialState.courses, action) => {
   switch (action.type) {
     case CREATE_COURCE: {
       return [...state, action.course];
