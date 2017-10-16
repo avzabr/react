@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
 
-const CouseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => {
+const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => {
   return (
     <form>
       <h1>Manage Courses</h1>
       <TextInput name="title"
-                 label="title"
+                 label="Title"
                  onChange={onChange}
                  error={errors.title}/>
       <SelectInput name="authorId"
@@ -18,11 +18,11 @@ const CouseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => {
                    options={allAuthors}
                    onChange={onChange}
                    error={errors.authorId}/>
-      <TextInput name="category"
+      <TextInput name="Category"
                  label="category"
                  onChange={onChange}
                  error={errors.category}/>
-      <TextInput name="length"
+      <TextInput name="Length"
                  label="length"
                  onChange={onChange}
                  error={errors.length}/>
@@ -36,7 +36,7 @@ const CouseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => {
   );
 };
 
-CouseForm.propTypes = {
+CourseForm.propTypes = {
   course: PropTypes.object.isRequired,
   allAuthors: PropTypes.array,
   onSave: PropTypes.func.isRequired,
@@ -45,4 +45,4 @@ CouseForm.propTypes = {
   errors: PropTypes.array
 };
 
-export default CouseForm;
+export default CourseForm;

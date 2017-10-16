@@ -8,23 +8,33 @@ class ManageCoursePage extends React.Component {
 
   constructor(props, context) {
     super(props, context);
+
+    this.state = {
+      course: Object.assign({}, this.props.course),
+      errors: {}
+    };
+
   }
 
   render() {
     return (
       <div>
-        <CourseForm/>
+        <CourseForm
+          allAuthors={[]}
+          course={this.state.course}
+          errors={this.state.errors}/>
       </div>
     );
   }
 }
 
 ManageCoursePage.propTypes = {
-//
+  course: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
+  return {course};
 };
 
 const mapDispatchToProps = (dispatch) => {
