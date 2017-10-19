@@ -24,3 +24,28 @@ export const loadCourses = () => {
     });
   };
 };
+
+function updateCourseSuccess(course) {
+  return {
+    type: types.UPDATE_COURSE_SUCCESS,
+    course
+  };
+}
+
+function createCourseSuccess(course) {
+  return {
+    type: types.CREATE_COURSE_SUCCESS,
+    course
+  };
+}
+
+export const saveCourse = (updatedCourse) => {
+  return (dispatch) => {
+    return courseApi.saveCourse(updatedCourse).then((savedCourse) => {
+      updatedCourse.id ?
+        dispatch(updateCourseSuccess(savedCourse)) : dispatch(createCourseSuccess(savedCourse));
+    }).catch((error) => {
+      throw(error);
+    });
+  };
+};

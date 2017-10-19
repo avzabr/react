@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {createCourse} from "../../actions/courseActions";
 import CourseList from './CourseList';
+import {browserHistory} from 'react-router';
 
 class CoursesPage extends React.Component {
 
@@ -12,31 +13,18 @@ class CoursesPage extends React.Component {
       course: {title: ''}
     };
 
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onClickSave = this.onClickSave.bind(this);
+    this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
   }
 
-  onTitleChange(event) {
-    const course = this.state.course;
-    course.title = event.target.value;
-    this.setState({
-      course: course
-    });
-  }
-
-  onClickSave() {
-    this.props.createCourse(this.state.course);
-    this.setState({
-      course: {
-        title: ''
-      }
-    });
+  redirectToAddCoursePage() {
+    browserHistory.push('/course');
   }
 
   render() {
     return (
       <div>
         <h1>Courses</h1>
+        <input type="submit" value="Add Course" className="btn btn-primary" onClick={this.redirectToAddCoursePage}/>
         <CourseList courses={this.props.courses}/>
       </div>
     );

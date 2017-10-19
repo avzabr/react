@@ -10,21 +10,24 @@ const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => 
       <TextInput name="title"
                  label="Title"
                  onChange={onChange}
-                 error={errors.title}/>
+                 error={errors.title}
+                 value={course.title}/>
       <SelectInput name="authorId"
                    label="Author"
-                   value="course.authorId"
-                   defaultOption="SelectAuthor"
+                   value={course.authorId}
+                   defaultOption="Select Author"
                    options={allAuthors}
                    onChange={onChange}
                    error={errors.authorId}/>
-      <TextInput name="Category"
-                 label="category"
+      <TextInput name="category"
+                 label="Category"
                  onChange={onChange}
+                 value={course.category}
                  error={errors.category}/>
-      <TextInput name="Length"
-                 label="length"
+      <TextInput name="length"
+                 label="Length"
                  onChange={onChange}
+                 value={course.length}
                  error={errors.length}/>
       <input type="submit"
              disabled={loading}
@@ -42,7 +45,7 @@ CourseForm.propTypes = {
   onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   loading: PropTypes.bool,
-  errors: PropTypes.array
+  errors: PropTypes.object
 };
 
 export default CourseForm;
