@@ -23,8 +23,8 @@ const courseReducer = (state = initialState.courses, action) => {
       });
       return [
         ...state.slice(0, index),
-        action.item,
-        ...state.slice(index)
+        action.course,
+        ...state.slice(index + 1)
       ];
     }
     default:
