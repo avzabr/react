@@ -41,6 +41,12 @@ function createCourseSuccess(course) {
   };
 }
 
+function saveCourseFailure() {
+  return {
+    type: types.SAVE_COURSE_FAILURE
+  };
+}
+
 export const saveCourse = (updatedCourse) => {
   return (dispatch) => {
     dispatch(beginAjaxCall());
@@ -48,6 +54,7 @@ export const saveCourse = (updatedCourse) => {
       updatedCourse.id ?
         dispatch(updateCourseSuccess(savedCourse)) : dispatch(createCourseSuccess(savedCourse));
     }).catch((error) => {
+      dispatch(saveCourseFailure(error));
       throw(error);
     });
   };
