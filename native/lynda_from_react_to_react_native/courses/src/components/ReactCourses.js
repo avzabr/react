@@ -1,30 +1,25 @@
 import React, {Component} from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Button
-} from 'react-native';
+import {ListView} from 'react-native';
+import data from '../data/courses.json';
+import Courses from './Courses';
 
-export default class ReactCourses extends Component {
+const ds = new ListView.DataSource({
+    rowHasChanged: (r1, r2) => r1 !== r2
+});
 
-    static navigationOptions = {
-        title: 'React Courses'
-    }
+const dataSource = ds.cloneWithRows(data.filter(course => course.category === 'react'));
+
+export default class NativeCourses extends Component {
 
     render() {
-        const {navigate} = this.props.navigation;
-
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcom}>
-                    Welcome to React Courses
-                </Text>
-                <Button
-                    onPress={() => navigate('NativeCourses')}
-                    title='React Native Courses'>
-                </Button>
-            </View>
+            <Courses
+                title='React Coures'
+                topBtn={{title: 'Native Courses', navLink: 'NativeCourses'}}
+                dataSource={dataSource}
+                {...this.props}
+                styles={styles}
+            />
         )
     }
 }
