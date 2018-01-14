@@ -1,12 +1,16 @@
 import {AppRegistry} from 'react-native';
-import App from './src/components/App';
-import {StackNavigator} from 'react-navigation';
+import {TabNavigator} from 'react-navigation';
 import ReactCourses from './src/components/ReactCourses'
 import NativeCourses from './src/components/NativeCourses'
 
-const courses = StackNavigator({
+const courses = TabNavigator({
     ReactCourses: {screen: ReactCourses},
     NativeCourses: {screen: NativeCourses},
+}, {
+    tabBarOptions: {
+        activeTintColor: '#e91e63',
+        swipeEnabled: true
+    }
 });
 
 AppRegistry.registerComponent('courses', () => courses);

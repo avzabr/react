@@ -13,10 +13,6 @@ export default class Courses extends Component {
 
     static defaultProps = {
         title: "courses",
-        topBtn: {
-            title: 'React Courses',
-            navLink: 'ReactCourses'
-        },
         styles: {}
     };
 
@@ -27,19 +23,11 @@ export default class Courses extends Component {
         styles: PropTypes.object
     };
 
-    navigationOptions = ({navigation}) => ({
-        title: navigation.state.params.title,
-    });
-
     render() {
-        const {navigate} = this.props.navigation;
 
         return (
             <View style={this.props.styles.container}>
-                <Button
-                    onPress={() => navigate(this.props.topBtn.navLink)}
-                    title={this.props.topBtn.title}>
-                </Button>
+                <Text style={this.props.styles.welcome}>{this.props.title}</Text>
                 <ListView
                     dataSource={this.props.dataSource}
                     renderRow={(rowData) =>
