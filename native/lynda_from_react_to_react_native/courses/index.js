@@ -8,8 +8,12 @@ const courses = TabNavigator({
     NativeCourses: {screen: NativeCourses},
 }, {
     tabBarOptions: {
-        activeTintColor: '#e91e63',
-        swipeEnabled: true
+        activeTintColor: '#ffffff',
+        inactiveTintColor: '#80cbc4',
+        swipeEnabled: true,
+        style: {
+            backgroundColor: '#25a69a'
+        }
     }
 });
 

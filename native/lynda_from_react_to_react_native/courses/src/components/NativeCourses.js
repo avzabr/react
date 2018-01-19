@@ -31,28 +31,9 @@ export default class NativeCourses extends Component {
             <Courses
                 title='Native Coures'
                 dataSource={dataSource}
-                icon='settings-cell'
-                styles={styles}
                 {...this.props}
             />
         )
     }
 }
 
-const styles = {
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5CFFF'
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10
-    },
-    icon: {
-        width: 26,
-        height: 26
-    }
-};
